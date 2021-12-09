@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <script type='module' src='/js/main.js'></script>
+</head>
+
+<body>
+    <button class='mine-coin mine-coin_theme'>D</button>
+
+    <div class='wallet wallet_theme'> 
+        В кошельке: <span id='wallet'>0</span>
+    </div>
+     
+    <div class='smart-input smart-input_theme'>
+        <input type='number' id='amount' placeholder="введи количество монет" disabled/>
+        <span class='smart-input__message'>Не может быть больше суммы в кошельке</span>
+    </div>
+
+    <label class='period period_theme'>Период
+        <select id='period' placeholder="выбери период"></select>
+    </label>
+
+    <button class='stacking-button stacking-button_theme' disabled>Отправить в стейкинг</button>
+
+    <table class='main-table main-table_theme'>
+        <thead>
+            <tr>
+                <th>Сумма</th>
+                <th>Период</th>
+                <th>Осталось дней</th>
+                <th>Прибыль</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
