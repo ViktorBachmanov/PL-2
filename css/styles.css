@@ -95,6 +95,10 @@ th, td {
     margin: 1rem;
 }
 
+.stacking-button {
+    padding: 0.5rem;
+}
+
 .stacking-button_theme {
     margin: 1rem;
 }
