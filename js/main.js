@@ -32,7 +32,7 @@ mineButton.onclick = () => {
 }
 
 
-amountInput.onchange = function() {
+amountInput.oninput = function() {
     if(this.value >= wallet.amount) {
         stackingButton.disabled = true;
         this.parentNode.classList.add('smart-input_error');
