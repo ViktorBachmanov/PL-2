@@ -9,6 +9,9 @@ class Stacking {
         this._period = Number(period);
         this._returnCoin = returnCoin;
 
+        this._log = Math.log10(this._amount);
+        this._koef = period_koef[period];
+
         this._profit = 0;
 
         this._daysCount = 0;
@@ -27,7 +30,7 @@ class Stacking {
     process() {
         this._daysCount++;
 
-        this._profit = Stacking.evalProfit(this._amount, this._period, this._daysCount);
+        this._profit = Stacking.evalProfit(this._amount, this._period, this._daysCount, this._log, this._koef);
 
         if(isEqual(this._daysCount, this._period)) {
             this._returnCoin(this._amount + this._profit);
@@ -51,9 +54,8 @@ class Stacking {
 
 
 Stacking.table = new Table('.main-table');
-Stacking.evalProfit = (amount, period, daysCount) => {
-    let log = Math.log10(amount);
-    let koef = period_koef[period];
+Stacking.evalProfit = (amount, period, daysCount, log, koef) => {
+    
     let daysRatio = daysCount / period;
     let profit = amount * log * koef * daysRatio / 100;
     return  profit;
