@@ -73,5 +73,4 @@ function processDay() {
     }
 
     stackingContainer.process();
-
 }

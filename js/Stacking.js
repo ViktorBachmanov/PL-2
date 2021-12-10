@@ -12,9 +12,10 @@ class Stacking {
         
         this._isDone = false;
 
-        this._profit = Stacking.evalProfit(this._amount, this._period);
-
         [this._restCell, this._profitCell] = Stacking.table.addRow(this._amount, this._period);
+
+        this._profit = Stacking.evalProfit(this._amount, this._period);
+        this._profitCell.textContent = this._profit.toFixed(accuracy);
     }
 
 
@@ -35,11 +36,7 @@ class Stacking {
 
     repaint() {
         this._restCell.textContent = this._rest;
-        this._profitCell.textContent = this._profit.toFixed(accuracy);
     }
-
-
-
 }
 
 

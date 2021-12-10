@@ -51,7 +51,7 @@ body, input, select, button, label {
 
 th, td {
     border: solid black 1px;
-    padding: 1rem;
+    padding: 0.5rem;
     text-align: center;
 }
 
@@ -77,14 +77,15 @@ th, td {
 .row_inactive {
     background: rgb(209, 213, 219);
 }
-/*
-.period {
-    display: flex;
-}*/
 
 .period_theme {
     display: inline-block;
     margin: 1rem;
+}
+
+.mine-coin {
+    padding: 0.25rem;
+    width: 2rem;
 }
 
 .mine-coin_theme {
