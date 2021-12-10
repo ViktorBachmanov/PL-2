@@ -102,6 +102,7 @@ th, td {
 
 .stacking-button_theme {
     margin: 1rem;
+    border-radius: 0.5rem;
 }
 
 .main-table_theme {
