@@ -55,7 +55,7 @@ Stacking.evalProfit = (amount, period, daysCount) => {
     let log = Math.log10(amount);
     let koef = period_koef[period];
     let daysRatio = daysCount / period;
-    let profit = amount / 100 / log * koef * daysRatio;
+    let profit = amount * log * koef * daysRatio / 100;
     return  profit;
 }
 
