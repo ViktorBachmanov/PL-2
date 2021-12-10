@@ -6,22 +6,30 @@ import { accuracy, period_koef } from './config.js';
 class Stacking {
     constructor(amount, period, returnCoin) {
         this._amount = Number(amount);
-        this._period = period;
-        this._rest = period;
+        this._period = Number(period);
         this._returnCoin = returnCoin;
+
+        this._profit = 0;
+
+        this._daysCount = 0;
         
         this._isDone = false;
 
         [this._restCell, this._profitCell] = Stacking.table.addRow(this._amount, this._period);
 
-        this._profit = Stacking.evalProfit(this._amount, this._period);
-        this._profitCell.textContent = this._profit.toFixed(accuracy);
+        this.repaint();
     }
 
+    get rest() {
+        return this._period - this._daysCount;
+    }
 
     process() {
-        this._rest--;
-        if(isEqual(this._rest, 0)) {
+        this._daysCount++;
+
+        this._profit = Stacking.evalProfit(this._amount, this._period, this._daysCount);
+
+        if(isEqual(this._daysCount, this._period)) {
             this._returnCoin(this._amount + this._profit);
 
             this._isDone = true;
@@ -35,16 +43,19 @@ class Stacking {
     }
 
     repaint() {
-        this._restCell.textContent = this._rest;
+        this._restCell.textContent = this.rest;
+
+        this._profitCell.textContent = this._profit.toFixed(accuracy);
     }
 }
 
 
 Stacking.table = new Table('.main-table');
-Stacking.evalProfit = (amount, period) => {
+Stacking.evalProfit = (amount, period, daysCount) => {
     let log = Math.log10(amount);
     let koef = period_koef[period];
-    let profit = amount / 100 / log * koef;
+    let daysRatio = daysCount / period;
+    let profit = amount / 100 / log * koef * daysRatio;
     return  profit;
 }
 

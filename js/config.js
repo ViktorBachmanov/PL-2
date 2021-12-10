@@ -1,4 +1,4 @@
-export const day = 400;   // 1 day = 0.4 second
+export const day = 1000;   // 1 day = 0.4 second
 
 export const writingOffPeriod = 100;
 
