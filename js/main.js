@@ -19,8 +19,14 @@ for(let key in period_koef) {
 }
 
 
-const mineButton = document.querySelector('.mine-coin');
-mineButton.onclick = () => {
+document.addEventListener('keydown', function(event) {
+    if(event.code == 'KeyD') {
+        mineCoin();
+    }
+});
+
+
+function mineCoin() {
     if(wallet === undefined) {
         wallet = new Wallet();
 
