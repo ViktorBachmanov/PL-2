@@ -42,7 +42,7 @@ amountInput.oninput = function() {
     if(this.value <= 0)
         return;
         
-    if(this.value >= wallet.amount) {
+    if(this.value > wallet.amount) {
         stackingButton.disabled = true;
         this.parentNode.classList.add('smart-input_error');
     } else {
